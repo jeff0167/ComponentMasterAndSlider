@@ -1,0 +1,7 @@
+{
+  "name": "ComponentMasterAndSlider",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
