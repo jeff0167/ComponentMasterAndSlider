@@ -5,6 +5,8 @@ import { IonicModule, PopoverController } from '@ionic/angular';
 
 import { PopUpComponent } from '../components/pop-up/pop-up.component';
 
+import { Geolocation, Position } from '@capacitor/geolocation';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
@@ -16,7 +18,9 @@ export class HomePage {
 
   MyVal: boolean = false;
   
-  constructor(public popoverController: PopoverController) {}
+  constructor(public popoverController: PopoverController) {
+    this.printCurrentPosition();
+  }
 
   async presentPopover(e: Event) { // still a bunch of code just to use a object/component
     const popover = await this.popoverController.create({  // we create a popup from the existing pop-upComponent class so to say, you could switch out the component to create
@@ -33,4 +37,11 @@ export class HomePage {
       });
   }
 
+  async printCurrentPosition() {
+    const coordinates = await Geolocation.getCurrentPosition();
+  
+    console.log('Current position:', coordinates);
+  };
+
 }
+
