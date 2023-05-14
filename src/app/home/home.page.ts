@@ -6,6 +6,7 @@ import { IonicModule, PopoverController } from '@ionic/angular';
 import { PopUpComponent } from '../components/pop-up/pop-up.component';
 
 import { Geolocation, Position } from '@capacitor/geolocation';
+import { JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-home',
@@ -17,7 +18,7 @@ import { Geolocation, Position } from '@capacitor/geolocation';
 export class HomePage {
 
   MyVal: boolean = false;
-  
+  location!: Position;
   constructor(public popoverController: PopoverController) {
     this.printCurrentPosition();
   }
@@ -39,8 +40,9 @@ export class HomePage {
 
   async printCurrentPosition() {
     const coordinates = await Geolocation.getCurrentPosition();
-  
-    console.log('Current position:', coordinates);
+    this.location = coordinates;
+    //console.log('Current position:', coordinates);
+    console.log('Current position:', this.location);
   };
 
 }
