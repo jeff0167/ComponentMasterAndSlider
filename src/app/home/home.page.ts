@@ -38,6 +38,13 @@ export class HomePage {
       });
   }
 
+  followPos(){
+    setTimeout(async() => {
+      const coordinates = await Geolocation.getCurrentPosition();
+      this.location = coordinates;
+    }, 1500);
+  }
+
   async printCurrentPosition() {
     const coordinates = await Geolocation.getCurrentPosition();
     this.location = coordinates;

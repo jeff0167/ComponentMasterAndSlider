@@ -20,4 +20,6 @@
   <ion-button (click)="printCurrentPosition()">Get new pos</ion-button>
   <h1>latitude: {{location?.coords?.latitude}}, longitude:{{location?.coords?.longitude}}</h1>
 
+  <ion-button color="danger" (click)="followPos()">Constant update pos</ion-button>
+
 </ion-content>
