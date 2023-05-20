@@ -1,26 +1,46 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonicModule, PopoverController } from '@ionic/angular';
-
+import { IonicModule, ModalController, PopoverController } from '@ionic/angular';
 import { PopUpComponent } from '../components/pop-up/pop-up.component';
-
 import { Geolocation, Position } from '@capacitor/geolocation';
-import { JsonPipe } from '@angular/common';
+import { Modal1Component } from '../modals/modal1/modal1.component';
+import { Modal2Component } from '../modals/modal2/modal2.component';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { register } from 'swiper/element/bundle';
+
+register(); // why so had, why can't I just import one thing and use it?
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
   styleUrls: ['./home.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule, PopUpComponent]
+  imports: [IonicModule, CommonModule, FormsModule, PopUpComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA], // what in the world is this, I just want to use swiper
 })
 export class HomePage {
 
   MyVal: boolean = false;
   location!: Position;
-  constructor(public popoverController: PopoverController) {
+  constructor(public popoverController: PopoverController, public modalController: ModalController) {
     this.printCurrentPosition();
+  }
+
+  async openModal1() {
+    const modal = await this.modalController.create({
+      component: Modal1Component,
+      id: 'modal-1'
+    });
+    await modal.present();
+  }
+
+  async openModal2() {
+    const modal = await this.modalController.create({
+      component: Modal2Component,
+      id: 'modal-2'
+    });
+    await modal.present();
   }
 
   async presentPopover(e: Event) { // still a bunch of code just to use a object/component
@@ -36,6 +56,10 @@ export class HomePage {
         //const user = data['data']; 
         this.MyVal = data?.data;
       });
+  }
+
+  swiperSlideChange(e: any){
+
   }
 
   followPos(){
