@@ -123,6 +123,9 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 ionic-loader
 
+mapbox-gl
+SEE LICENSE IN LICENSE.txt
+
 rxjs
 Apache-2.0
                                Apache License
