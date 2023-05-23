@@ -8,6 +8,7 @@ import { Modal1Component } from '../modals/modal1/modal1.component';
 import { Modal2Component } from '../modals/modal2/modal2.component';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { register } from 'swiper/element/bundle';
+import { RouterModule } from '@angular/router';
 
 register(); // why so had, why can't I just import one thing and use it?
 
@@ -16,7 +17,7 @@ register(); // why so had, why can't I just import one thing and use it?
   templateUrl: './home.page.html',
   styleUrls: ['./home.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule, PopUpComponent],
+  imports: [IonicModule, CommonModule, FormsModule, PopUpComponent, RouterModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA], // what in the world is this, I just want to use swiper
 })
 export class HomePage {
@@ -58,9 +59,7 @@ export class HomePage {
       });
   }
 
-  swiperSlideChange(e: any){
-
-  }
+  swiperSlideChange(e: any){}
 
   followPos(){
     setTimeout(async() => {

@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { Geolocation, Position } from '@capacitor/geolocation';
-import { RouterLink } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
 declare var require: any
 const mapboxgl = require('mapbox-gl');
@@ -15,7 +15,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiamVmZnJpeW8iLCJhIjoiY2xoenluc3gxMWk3dDNkbnRnb
   templateUrl: './gps.page.html',
   styleUrls: ['./gps.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule, RouterLink]
+  imports: [IonicModule, CommonModule, FormsModule, RouterModule]
 })
 export class GpsPage implements OnInit {
 

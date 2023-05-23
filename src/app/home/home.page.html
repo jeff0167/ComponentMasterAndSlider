@@ -12,8 +12,8 @@
   </ion-header>
 
   <swiper-container (slidechange)="swiperSlideChange($event)" [loop]="true" [pagination]="true" [zoom]="true">
-    <swiper-slide>Slide 1
-      <h1>hi</h1>
+    <swiper-slide>
+      <h1>Slide 1</h1>
 
       <ion-button (click)="presentPopover($event)">Click Me</ion-button>
     
@@ -26,10 +26,11 @@
     
       <ion-button (click)="openModal1()">Open modal 1</ion-button>
       <ion-button (click)="openModal2()">Open modal 2</ion-button>
-    
+
+      <ion-button color="success" routerLink="/gps">Go to gps</ion-button>
     </swiper-slide>
-    <swiper-slide>Slide 2
-      <h1>hi</h1>
+    <swiper-slide>
+      <h1>Slide 2</h1>
 
       <ion-button (click)="presentPopover($event)">Click Me</ion-button>
     
@@ -42,10 +43,11 @@
     
       <ion-button (click)="openModal1()">Open modal 1</ion-button>
       <ion-button (click)="openModal2()">Open modal 2</ion-button>
-    
+
+      <ion-button color="success" routerLink="/gps">Go to gps</ion-button>
     </swiper-slide>
-    <swiper-slide>Slide 3
-      <h1>hi</h1>
+    <swiper-slide>
+      <h1>Slide 3</h1>
 
       <ion-button (click)="presentPopover($event)">Click Me</ion-button>
     
@@ -59,9 +61,9 @@
       <ion-button (click)="openModal1()">Open modal 1</ion-button>
       <ion-button (click)="openModal2()">Open modal 2</ion-button>
     
+      <ion-button color="success" routerLink="/gps">Go to gps</ion-button>
     </swiper-slide>
   </swiper-container>
 
-  <button routerLink="/gps">Go to gps</button>
 
 </ion-content>
