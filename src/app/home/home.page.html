@@ -11,8 +11,6 @@
     </ion-toolbar>
   </ion-header>
 
-  <h1>hi</h1>
-
   <ion-button (click)="presentPopover($event)">Click Me</ion-button>
 
   <h1>{{MyVal}}</h1>
@@ -21,5 +19,7 @@
   <h1>latitude: {{location?.coords?.latitude}}, longitude:{{location?.coords?.longitude}}</h1>
 
   <ion-button color="danger" (click)="followPos()">Constant update pos</ion-button>
+
+  <ion-button routerLink="/gps">Go to gps</ion-button>
 
 </ion-content>

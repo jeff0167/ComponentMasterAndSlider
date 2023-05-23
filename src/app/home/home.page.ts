@@ -2,25 +2,24 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule, PopoverController } from '@ionic/angular';
-
 import { PopUpComponent } from '../components/pop-up/pop-up.component';
-
 import { Geolocation, Position } from '@capacitor/geolocation';
-import { JsonPipe } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
   styleUrls: ['./home.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule, PopUpComponent]
+  imports: [IonicModule, CommonModule, FormsModule, PopUpComponent, RouterLink]
 })
 export class HomePage {
 
   MyVal: boolean = false;
   location!: Position;
   constructor(public popoverController: PopoverController) {
-    this.printCurrentPosition();
+    //this.printCurrentPosition();
+    this.followPos();
   }
 
   async presentPopover(e: Event) { // still a bunch of code just to use a object/component
@@ -38,10 +37,11 @@ export class HomePage {
       });
   }
 
-  followPos(){
+  followPos(){ // only calls it once
     setTimeout(async() => {
       const coordinates = await Geolocation.getCurrentPosition();
       this.location = coordinates;
+      console.log("Updating cord");
     }, 1500);
   }
 
