@@ -11,15 +11,57 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-button (click)="presentPopover($event)">Click Me</ion-button>
+  <swiper-container (slidechange)="swiperSlideChange($event)" [loop]="true" [pagination]="true" [zoom]="true">
+    <swiper-slide>Slide 1
+      <h1>hi</h1>
 
-  <h1>{{MyVal}}</h1>
+      <ion-button (click)="presentPopover($event)">Click Me</ion-button>
+    
+      <h1>{{MyVal}}</h1>
+    
+      <ion-button (click)="printCurrentPosition()">Get new pos</ion-button>
+      <h1>latitude: {{location?.coords?.latitude}}, longitude:{{location?.coords?.longitude}}</h1>
+    
+      <ion-button color="danger" (click)="followPos()">Constant update pos</ion-button>
+    
+      <ion-button (click)="openModal1()">Open modal 1</ion-button>
+      <ion-button (click)="openModal2()">Open modal 2</ion-button>
+    
+    </swiper-slide>
+    <swiper-slide>Slide 2
+      <h1>hi</h1>
 
-  <ion-button (click)="printCurrentPosition()">Get new pos</ion-button>
-  <h1>latitude: {{location?.coords?.latitude}}, longitude:{{location?.coords?.longitude}}</h1>
+      <ion-button (click)="presentPopover($event)">Click Me</ion-button>
+    
+      <h1>{{MyVal}}</h1>
+    
+      <ion-button (click)="printCurrentPosition()">Get new pos</ion-button>
+      <h1>latitude: {{location?.coords?.latitude}}, longitude:{{location?.coords?.longitude}}</h1>
+    
+      <ion-button color="danger" (click)="followPos()">Constant update pos</ion-button>
+    
+      <ion-button (click)="openModal1()">Open modal 1</ion-button>
+      <ion-button (click)="openModal2()">Open modal 2</ion-button>
+    
+    </swiper-slide>
+    <swiper-slide>Slide 3
+      <h1>hi</h1>
 
-  <ion-button color="danger" (click)="followPos()">Constant update pos</ion-button>
+      <ion-button (click)="presentPopover($event)">Click Me</ion-button>
+    
+      <h1>{{MyVal}}</h1>
+    
+      <ion-button (click)="printCurrentPosition()">Get new pos</ion-button>
+      <h1>latitude: {{location?.coords?.latitude}}, longitude:{{location?.coords?.longitude}}</h1>
+    
+      <ion-button color="danger" (click)="followPos()">Constant update pos</ion-button>
+    
+      <ion-button (click)="openModal1()">Open modal 1</ion-button>
+      <ion-button (click)="openModal2()">Open modal 2</ion-button>
+    
+    </swiper-slide>
+  </swiper-container>
 
-  <ion-button routerLink="/gps">Go to gps</ion-button>
+  <button routerLink="/gps">Go to gps</button>
 
 </ion-content>
